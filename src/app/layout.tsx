@@ -67,7 +67,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#FAF7F0',
+  themeColor: '#FFFFFF',
   colorScheme: 'light',
 }
 
@@ -78,11 +78,19 @@ export default function RootLayout({
     <html
       lang="en-IN"
       className={`${playfair.variable} ${inter.variable} antialiased`}
+      suppressHydrationWarning
     >
       <body
-        className="min-h-screen bg-[#FAF7F0] text-[#1A1815]"
+        className="min-h-screen bg-white text-black"
         style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+        suppressHydrationWarning
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var attrs=['bis_skin_checked','bis_register'];function strip(el){if(!el||!el.removeAttribute)return;for(var i=0;i<attrs.length;i++)el.removeAttribute(attrs[i]);}document.querySelectorAll('['+attrs.join('],[')+']').forEach(strip);new MutationObserver(function(muts){for(var i=0;i<muts.length;i++){var m=muts[i];if(m.type==='attributes'){m.target.removeAttribute(m.attributeName);}else if(m.addedNodes){m.addedNodes.forEach(function(n){if(n.nodeType===1){strip(n);if(n.querySelectorAll)n.querySelectorAll('['+attrs.join('],[')+']').forEach(strip);}});}}}).observe(document.documentElement,{attributes:true,subtree:true,childList:true,attributeFilter:attrs});})();",
+          }}
+        />
         {children}
         <Toaster theme="light" position="bottom-right" richColors />
       </body>

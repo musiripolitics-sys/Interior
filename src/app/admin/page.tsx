@@ -32,8 +32,8 @@ export default async function AdminLeadsPage() {
   const { leads, error } = await loadLeads()
 
   return (
-    <div className="min-h-screen bg-[#FAF7F0]">
-      <header className="bg-[#1A1815] text-[#FAF7F0] px-6 py-4 flex items-center justify-between">
+    <div className="min-h-screen bg-[#FFFFFF]">
+      <header className="bg-[#000000] text-[#FFFFFF] px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <img
             src="/logo-white.avif"
@@ -42,13 +42,13 @@ export default async function AdminLeadsPage() {
             height={98}
             className="h-7 w-auto"
           />
-          <span className="text-xs uppercase tracking-[0.2em] text-[#FAF7F0]/50 hidden sm:inline">
+          <span className="text-xs uppercase tracking-[0.2em] text-[#FFFFFF]/50 hidden sm:inline">
             Admin · Leads
           </span>
         </div>
         <div className="flex items-center gap-4 text-xs">
-          <span className="text-[#FAF7F0]/55">
-            Signed in as <span className="text-[#FFC844] font-medium">{admin.username}</span>
+          <span className="text-[#FFFFFF]/55">
+            Signed in as <span className="text-[#FFB400] font-medium">{admin.username}</span>
           </span>
           <LogoutButton />
         </div>
@@ -57,11 +57,11 @@ export default async function AdminLeadsPage() {
       <main className="max-w-7xl mx-auto px-6 py-10">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
           <div>
-            <h1 className="font-[family-name:var(--font-playfair)] text-4xl text-[#1A1815] tracking-tight">
+            <h1 className="font-[family-name:var(--font-playfair)] text-4xl text-[#000000] tracking-tight">
               Enquiries{' '}
-              <span className="italic text-[#FF7A1A]">received</span>
+              <span className="italic text-[#FFB400]">received</span>
             </h1>
-            <p className="mt-2 text-sm text-[#1A1815]/65">
+            <p className="mt-2 text-sm text-[#000000]/65">
               {leads.length} {leads.length === 1 ? 'lead' : 'leads'} · Most recent first
             </p>
           </div>
@@ -88,7 +88,7 @@ function LogoutButton() {
     <form action="/api/admin/logout" method="post">
       <button
         type="submit"
-        className="inline-flex items-center gap-1.5 rounded-full border border-[#FAF7F0]/20 hover:border-[#FF7A1A] hover:text-[#FF7A1A] text-[#FAF7F0]/80 px-3 py-1.5 transition-colors"
+        className="inline-flex items-center gap-1.5 rounded-full border border-[#FFFFFF]/20 hover:border-[#FFB400] hover:text-[#FFB400] text-[#FFFFFF]/80 px-3 py-1.5 transition-colors"
       >
         Sign out
       </button>

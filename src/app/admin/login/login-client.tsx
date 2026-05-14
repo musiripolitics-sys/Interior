@@ -35,7 +35,7 @@ export default function LoginClient() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 bg-[#FAF7F0]">
+    <div className="min-h-screen flex items-center justify-center px-6 bg-[#FFFFFF]">
       <div className="w-full max-w-md">
         <img
           src="/logo-black.png"
@@ -45,19 +45,19 @@ export default function LoginClient() {
           className="h-12 w-auto mb-10"
         />
 
-        <h1 className="font-[family-name:var(--font-playfair)] text-4xl text-[#1A1815] tracking-tight">
-          Admin <span className="italic text-[#FF7A1A]">access</span>
+        <h1 className="font-[family-name:var(--font-playfair)] text-4xl text-[#000000] tracking-tight">
+          Admin <span className="italic text-[#FFB400]">access</span>
         </h1>
-        <p className="mt-2 text-sm text-[#1A1815]/65">
+        <p className="mt-2 text-sm text-[#000000]/65">
           Restricted area. Authorised personnel only.
         </p>
 
         <form
           onSubmit={onSubmit}
-          className="mt-8 bg-white rounded-2xl border border-[#1A1815]/10 p-7 shadow-xl shadow-[#1A1815]/5 space-y-5"
+          className="mt-8 bg-white rounded-2xl border border-[#000000]/10 p-7 shadow-xl shadow-[#000000]/5 space-y-5"
         >
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs uppercase tracking-[0.18em] text-[#1A1815]/60">
+            <label className="text-xs uppercase tracking-[0.18em] text-[#000000]/60">
               Username
             </label>
             <input
@@ -66,11 +66,11 @@ export default function LoginClient() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className="w-full bg-white border border-[#1A1815]/15 rounded-xl px-4 py-3 text-sm text-[#1A1815] focus:border-[#FF7A1A] focus:ring-2 focus:ring-[#FF7A1A]/25 outline-none transition"
+              className="w-full bg-white border border-[#000000]/15 rounded-xl px-4 py-3 text-sm text-[#000000] focus:border-[#FFB400] focus:ring-2 focus:ring-[#FFB400]/25 outline-none transition"
             />
           </div>
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs uppercase tracking-[0.18em] text-[#1A1815]/60">
+            <label className="text-xs uppercase tracking-[0.18em] text-[#000000]/60">
               Password
             </label>
             <input
@@ -79,13 +79,13 @@ export default function LoginClient() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full bg-white border border-[#1A1815]/15 rounded-xl px-4 py-3 text-sm text-[#1A1815] focus:border-[#FF7A1A] focus:ring-2 focus:ring-[#FF7A1A]/25 outline-none transition"
+              className="w-full bg-white border border-[#000000]/15 rounded-xl px-4 py-3 text-sm text-[#000000] focus:border-[#FFB400] focus:ring-2 focus:ring-[#FFB400]/25 outline-none transition"
             />
           </div>
           <button
             type="submit"
             disabled={submitting}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#FF7A1A] hover:bg-[#FF8C42] disabled:opacity-60 text-white text-base font-semibold px-6 py-3.5 transition-colors"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#FFB400] hover:bg-[#FFB400] disabled:opacity-60 text-white text-base font-semibold px-6 py-3.5 transition-colors"
           >
             {submitting ? (
               <Loader2 className="w-5 h-5 animate-spin" />
