@@ -29,7 +29,6 @@ export async function POST(req: Request) {
   const requiredQuotation: Array<keyof LeadPayload> = [
     'city',
     'projectType',
-    'area',
     'budget',
     'timeline',
   ]

@@ -20,11 +20,11 @@ import {
   Home,
   Layers,
   Loader2,
-  MapPin,
   Phone,
   Play,
   Sofa,
   Sparkles,
+  Star,
   UtensilsCrossed,
 } from 'lucide-react'
 import { toast } from 'sonner'
@@ -34,27 +34,19 @@ const HERO_IMAGE_ALT = '/6269543545467244420.jpg'
 
 const PROJECTS = [
   {
-    title: 'The Pavilion Villa',
-    location: 'Whitefield, Bengaluru',
-    typology: '6,400 sq.ft Villa',
+    title: 'Living Room',
     image: '/3%20(2).png',
   },
   {
-    title: 'Skyline Penthouse',
-    location: 'Worli, Mumbai',
-    typology: '4,200 sq.ft Penthouse',
+    title: 'Modular Kitchen',
     image: '/02.png',
   },
   {
-    title: 'Heritage House',
-    location: 'Banjara Hills, Hyderabad',
-    typology: '8,900 sq.ft Bungalow',
+    title: 'Master Bedroom',
     image: '/10%20(1).png',
   },
   {
-    title: 'The Quiet Atelier',
-    location: 'Koregaon Park, Pune',
-    typology: '3,100 sq.ft Apartment',
+    title: 'Dining Area',
     image: '/18.png',
   },
 ]
@@ -85,21 +77,27 @@ const STATS = [
 const TESTIMONIALS = [
   {
     quote:
-      'They turned a 7,000 sq.ft empty shell into the home I dreamed of for fifteen years. Every detail — from the brass switchplates to the way the morning light hits the foyer — was thought through.',
-    name: 'Aarav Mehta',
-    role: 'Founder, Mehta Capital · Bengaluru',
+      'Great experience with interios starting from planning, continuous follow up, great expertise of interior designers accommodate according to our expectations specially designer Hamid worked out very well. All the work done by designer were exceptional. Thanks to interios team for great job and made our work easy with passion and friendliness. Very special thanks to designer Roshan, site supervisor Mr. Senthil, prabu and I can say everyone from interiios were friendly and passionate. Big thanks to all.',
+    name: 'Thenmozhi Ashok',
+    role: 'Verified Google review · A year ago',
   },
   {
     quote:
-      'I have built homes in three countries. Interiors360 is the only firm that delivered exactly what was rendered. Exactly. On the date we signed for.',
-    name: 'Dr. Priya Reddy',
-    role: 'Cardiac Surgeon · Hyderabad',
+      'Had an amazing experience with MK Design in our interior journey. They have an amazing team (Aumirtha, Senthil, Jayaprabhu, Aravindan) right from design to completion, they are very professional, helping and reachable whenever we need to clear our doubts and to provide solutions for the problems. Quality of products used for plywood, hinges are top-notch where they never compromise in quality and handover time is as expected without any delay which is very useful for our planning. I highly recommend them to make your home dream come true.',
+    name: 'Balaji Karunanidhi',
+    role: 'Verified Google review · A year ago',
   },
   {
     quote:
-      'The procurement transparency alone was worth the premium. I knew where every rupee went, and the finishes are easily ten years ahead of anything I have seen in India.',
-    name: 'Karan Anand',
-    role: 'Managing Partner · Mumbai',
+      "Excellent work by MK Designs! They have done interiors to my villa and my office as well. I'm totally a satisfied and happy customer from day 1 till finishing. Such an extra ordinary team of members Roshind, aravind, sastha and senthil sir. Whenever we look for alternatives, they are always open to our ideas and even they are ready to change the designs during work as per the customer choices which was not even possible in many firms. Such a hardworking and creative team!! I strongly recommend them for interiors. All the best for your future projects and wishing you all and prashanth sir to reach great heights!!",
+    name: 'Kiruthika C.',
+    role: 'Local Guide · A year ago',
+  },
+  {
+    quote:
+      'Much appreciated for the patience and persistence to ensure the outcome is as close as possible to the rendered model. The entire team from designer, engineer, supervisor were co-operative and met our demands flawlessly. Highly recommend them for the various workmanship and a peaceful outcome for interior designing.',
+    name: 'SundaraPandyan SA',
+    role: 'Local Guide · 2 years ago',
   },
 ]
 
@@ -644,7 +642,7 @@ function Projects() {
             >
               <motion.img
                 src={p.image}
-                alt={`${p.title} — luxury interior in ${p.location}`}
+                alt={`${p.title} — luxury interior`}
                 className="absolute inset-0 w-full h-full object-cover"
                 animate={{ scale: hovered === i ? 1.06 : 1 }}
                 transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
@@ -656,16 +654,9 @@ function Projects() {
                 className="absolute inset-0 bg-[#FFB400]/20 mix-blend-overlay"
               />
               <div className="absolute inset-x-0 bottom-0 p-7 text-white">
-                <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#FFB400]">
-                  <MapPin className="w-3 h-3" />
-                  {p.location}
-                </div>
-                <h3 className="mt-2 font-[family-name:var(--font-playfair)] text-3xl">
+                <h3 className="font-[family-name:var(--font-playfair)] text-3xl">
                   {p.title}
                 </h3>
-                <div className="mt-1 text-sm text-white/75">
-                  {p.typology}
-                </div>
                 <motion.div
                   initial={false}
                   animate={{
@@ -734,7 +725,15 @@ function Testimonials() {
               <div className="text-[#FFB400] text-7xl font-[family-name:var(--font-playfair)] leading-none mb-4 select-none">
                 &ldquo;
               </div>
-              <p className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl text-[#000000] leading-snug max-w-3xl mx-auto">
+              <div className="flex items-center justify-center gap-1 mb-5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 text-[#FFB400] fill-[#FFB400]"
+                  />
+                ))}
+              </div>
+              <p className="font-[family-name:var(--font-playfair)] text-xl md:text-2xl text-[#000000] leading-relaxed max-w-3xl mx-auto">
                 {TESTIMONIALS[active].quote}
               </p>
               <div className="mt-8 text-sm text-[#000000]/70">
@@ -905,28 +904,16 @@ function ConsultForm() {
                     required
                   />
                   <SelectField
-                    label="Approx. carpet area (sq.ft)"
-                    name="area"
-                    options={[
-                      'Under 1,500',
-                      '1,500 – 3,000',
-                      '3,000 – 5,000',
-                      '5,000 – 8,000',
-                      '8,000+',
-                    ]}
-                    required
-                  />
-                  <SelectField
                     label="Indicative budget"
                     name="budget"
                     options={[
-                      '₹50L – ₹1Cr',
-                      '₹1Cr – ₹2Cr',
-                      '₹2Cr – ₹5Cr',
-                      '₹5Cr+',
+                      '₹15L – ₹20L',
+                      '₹20L – ₹25L',
+                      '₹25L+',
                       'Prefer to discuss',
                     ]}
                     required
+                    className="md:col-span-2"
                   />
                   <SelectField
                     label="Timeline"
@@ -940,17 +927,6 @@ function ConsultForm() {
                     required
                     className="md:col-span-2"
                   />
-                  <div className="md:col-span-2 flex flex-col gap-1.5">
-                    <label className="text-xs uppercase tracking-[0.18em] text-[#000000]/60">
-                      Anything else we should know
-                    </label>
-                    <textarea
-                      name="notes"
-                      rows={3}
-                      className="w-full bg-white border border-[#000000]/15 rounded-xl px-4 py-3 text-sm text-[#000000] placeholder:text-[#000000]/35 focus:border-[#FFB400] focus:ring-2 focus:ring-[#FFB400]/25 outline-none transition resize-none"
-                      placeholder="A reference image, an architect already on board, a deadline tied to a wedding, etc."
-                    />
-                  </div>
                   <button
                     type="submit"
                     disabled={submitting}
@@ -1080,16 +1056,16 @@ const CLIENT_VIDEOS = [
   {
     src: '/videos/testimonial-1.mp4',
     poster: '/videos/testimonial-1-thumb.jpg',
-    name: 'Aarav Mehta',
-    role: 'Founder, Mehta Capital',
-    location: 'Bengaluru',
+    name: 'Mrs. Raja Gopal',
+    role: '3 BHK flat',
+    location: 'R.A. Puram',
   },
   {
     src: '/videos/testimonial-2.mp4',
     poster: '/videos/testimonial-2-thumb.jpg',
-    name: 'Dr. Priya Reddy',
-    role: 'Cardiac Surgeon',
-    location: 'Hyderabad',
+    name: 'Mrs. Meena Jayaram',
+    role: '3 BHK flat',
+    location: 'Adambakkam',
   },
 ]
 
