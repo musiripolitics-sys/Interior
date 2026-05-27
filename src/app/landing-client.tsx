@@ -17,7 +17,6 @@ import {
   Clock,
   Compass,
   Hammer,
-  Home,
   Layers,
   Loader2,
   Phone,
@@ -39,25 +38,25 @@ const PROJECTS = [
   },
   {
     title: 'Modular Kitchen',
-    image: '/02.png',
-  },
-  {
-    title: 'Master Bedroom',
     image: '/10%20(1).png',
   },
   {
-    title: 'Dining Area',
+    title: 'Master Bedroom',
     image: '/18.png',
+  },
+  {
+    title: 'Dining Area',
+    image: '/6222027338724084681.jpg',
   },
 ]
 
 const SERVICES = [
-  { icon: Home, title: 'Villa & Bungalow Interiors' },
-  { icon: Layers, title: 'Penthouse & High-rise' },
+  { icon: Hammer, title: 'Custom Woodwork' },
+  { icon: Layers, title: 'Designer False Ceiling' },
   { icon: UtensilsCrossed, title: 'Modular Kitchens' },
   { icon: Sofa, title: 'Bespoke Furniture' },
   { icon: Sparkles, title: 'Lighting & Décor' },
-  { icon: Compass, title: 'Vastu-aligned Design' },
+  { icon: Compass, title: 'Vastu-aligned Designs' },
 ]
 
 const PROCESS_STEPS = [
@@ -68,9 +67,9 @@ const PROCESS_STEPS = [
 ]
 
 const STATS = [
-  { value: 380, suffix: '+', label: 'Projects Delivered' },
-  { value: 22, suffix: '', label: 'Cities Across India' },
-  { value: 17, suffix: ' yrs', label: 'In Practice' },
+  { value: 700, suffix: '+', label: 'Projects Delivered' },
+  { value: 6, suffix: '', label: 'Cities Across Tamil Nadu' },
+  { value: 13, suffix: '+ yrs', label: 'In Practice' },
   { value: 60, suffix: ' days', label: 'Avg. Handover' },
 ]
 
@@ -91,17 +90,17 @@ const TESTIMONIALS = [
     quote:
       "Excellent work by MK Designs! They have done interiors to my villa and my office as well. I'm totally a satisfied and happy customer from day 1 till finishing. Such an extra ordinary team of members Roshind, aravind, sastha and senthil sir. Whenever we look for alternatives, they are always open to our ideas and even they are ready to change the designs during work as per the customer choices which was not even possible in many firms. Such a hardworking and creative team!! I strongly recommend them for interiors. All the best for your future projects and wishing you all and prashanth sir to reach great heights!!",
     name: 'Kiruthika C.',
-    role: 'Local Guide · A year ago',
+    role: 'Verified Google review · A year ago',
   },
   {
     quote:
       'Much appreciated for the patience and persistence to ensure the outcome is as close as possible to the rendered model. The entire team from designer, engineer, supervisor were co-operative and met our demands flawlessly. Highly recommend them for the various workmanship and a peaceful outcome for interior designing.',
     name: 'SundaraPandyan SA',
-    role: 'Local Guide · 2 years ago',
+    role: 'Verified Google review · 2 years ago',
   },
 ]
 
-const ROTATING_WORDS = ['Villas.', 'Penthouses.', 'Bungalows.', 'Heritage Homes.']
+const ROTATING_WORDS = ['Homes.', 'Villas.']
 
 function LogoMark({ small = false }: { small?: boolean }) {
   return (
@@ -306,8 +305,31 @@ function Hero() {
 
           <h1 className="mt-7 font-[family-name:var(--font-playfair)] text-[44px] leading-[1.08] sm:text-6xl lg:text-[68px] tracking-tight text-[#000000]">
             <AnimatedHeadline />
-            <span className="block mt-3">
-              <span className="text-[#000000]/40 text-[0.7em] mr-3 align-middle">for</span>
+            <span className="block mt-3 whitespace-nowrap">
+              <motion.span
+                initial={{ y: '110%', opacity: 0 }}
+                animate={{ y: '0%', opacity: 1 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.15 + 2 * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="inline-block mr-3"
+              >
+                for
+              </motion.span>
+              <motion.span
+                initial={{ y: '110%', opacity: 0 }}
+                animate={{ y: '0%', opacity: 1 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.15 + 3 * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="inline-block mr-3"
+              >
+                your
+              </motion.span>
               <AnimatePresence mode="wait">
                 <motion.span
                   key={wordIdx}
@@ -403,13 +425,11 @@ function Hero() {
 function AnimatedHeadline() {
   const lines = [
     ['Interiors', 'crafted'],
-    ['for the homes', 'you', 'will'],
-    ['live', 'in', 'forever.'],
   ]
   let wordIdx = 0
   return (
     <span className="block">
-      {lines.slice(0, 2).map((line, li) => (
+      {lines.map((line, li) => (
         <span key={li} className="block overflow-hidden">
           <span className="inline-block">
             {line.map((word) => {
@@ -566,8 +586,7 @@ function Process() {
               className="mt-4 font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight"
             >
               Four phases.{' '}
-              <span className="italic">Sixty</span> days. Zero
-              ambiguity.
+              <span className="italic">Zero</span> ambiguity.
             </motion.h2>
           </div>
         </div>
@@ -825,10 +844,10 @@ function ConsultForm() {
                 Talk to us
               </div>
               <a
-                href="tel:+910000000000"
+                href="tel:+919884001255"
                 className="font-[family-name:var(--font-playfair)] text-lg text-[#000000] hover:text-[#FFB400] transition"
               >
-                +91 00000 00000
+                +91 98840 01255
               </a>
             </div>
             <div>
@@ -936,7 +955,7 @@ function ConsultForm() {
                       <Loader2 className="w-5 h-5 animate-spin" />
                     ) : (
                       <>
-                        Request my private consultation
+                        Request a private consultation
                         <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white text-[#FFB400] transition-transform group-hover:translate-x-1">
                           <ArrowRight className="w-3.5 h-3.5" />
                         </span>
@@ -1144,9 +1163,8 @@ function WalkthroughVideo() {
             transition={{ duration: 0.7 }}
             className="mt-4 font-[family-name:var(--font-playfair)] text-4xl md:text-5xl tracking-tight text-[#000000] max-w-3xl"
           >
-            A finished{' '}
-            <span className="italic text-[#FFB400]">home tour</span>, in
-            ninety seconds.
+            Our finished{' '}
+            <span className="italic text-[#FFB400]">design</span> walkthrough.
           </motion.h2>
         </div>
         <VideoFrame
